@@ -10,6 +10,9 @@ class Animal:
         self.velocidade = velocidade
         self.longevidade = longevidade
         self.altura = altura
+        
+    def exibir_dados(self):
+        return f"Peso: {self.peso}kg | Vel: {self.velocidade}km/h | Vida: {self.longevidade} anos | Altura: {self.altura}cm"
 
 #Criando cartas usando a classe Animal:
 leao = Animal("Leão", 190, 74, 15, 210)
@@ -37,6 +40,7 @@ def jogar():
 
         print("===============================")
         print(f"Sua carta: {cartaJogador.nome}")
+        print(cartaJogador.exibir_dados())
         atributo = input("Escolha um atributo (peso, velocidade, longevidade, altura): ").lower()
 
         if atributo in ["peso", "velocidade", "longevidade", "altura"]:
