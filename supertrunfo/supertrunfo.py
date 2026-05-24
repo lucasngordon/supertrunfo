@@ -29,6 +29,7 @@ def jogar():
     vidasJogador = 3
     vidasComputador = 3
 
+    #Sorteia as cartas
     while vidasComputador > 0 and vidasJogador > 0:
         cartaJogador = random.choice(animais)
         cartaComputador = random.choice(animais)
@@ -36,27 +37,32 @@ def jogar():
             cartaComputador = random.choice(animais)
 
         print("===============================")
-        print(f"Sua carta: {cartaJogador.nome}")
-        atributo = input("Escolha um atributo (peso, velocidade, longevidade, altura): ").lower()
+        print(f"Sua carta: {cartaJogador.nome.upper()}")
+        atributo = input("Escolha um atributo (peso, velocidade, longevidade, altura): ").strip().lower()
 
-        if atributo in ["peso", "velocidade", "longevidade", "altura"]:
-            time.sleep(1)
-            print(f"Carta do computador: {cartaComputador.nome}")
-            time.sleep(0.5)
-            if getattr(cartaJogador, atributo) > getattr(cartaComputador, atributo):
-                vidasComputador -= 1
-                print("Você ganhou a rodada!")
-            elif getattr(cartaJogador, atributo) < getattr(cartaComputador, atributo):
-                vidasJogador -= 1
-                print("Você perdeu a rodada!")
-            else:
-                print("Empate!")
+        if atributo not in ["peso", "velocidade", "longevidade", "altura"]:
+             print("\nAtributo inválido. Escolha entre peso, velocidade, longevidade e altura.")
+             continue
+         
+        val_jogador = getattr(cartaJogador, atributo)
+        val_computador = getattr(cartaComputador, atributo)
+        
+        print(f"\nComputador revelando...")
+        time.sleep(1)
+        print(f"CARTA DO COMPUTADOR: {cartaComputador.nome} ({atributo}: {val_computador})")
+        time.sleep(0.5)
+        
+        # Lógica de vitória
+        if val_jogador > val_computador:
+            vidasComputador -= 1
+            print("Você ganhou a rodada!")
+        elif val_jogador < val_computador:
+            vidasJogador -= 1
+            print("Você perdeu a rodada!")
         else:
-             print("\nAtributo inválido. Escolha entre peso, velocidade, longevidade e altura. ")
-             jogar()
+            print("Empate!")
 
-        print(f"\nSuas vidas: {vidasJogador}")
-        print(f"Vidas do Computador: {vidasComputador}")
+        print(f"\nPLACAR: Jogador {vidasJogador} x {vidasComputador} Computador")
 
         if vidasJogador == 0:
             print("\nComputador venceu!")
