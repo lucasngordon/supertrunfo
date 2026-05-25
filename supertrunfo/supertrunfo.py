@@ -43,6 +43,7 @@ def jogar():
         while True:
             print("===============================")
             print(f"Sua carta: {cartaJogador.nome.upper()}")
+            print(cartaJogador.exibir_dados())
             atributo = input("Escolha um atributo (peso, velocidade, longevidade, altura): ").strip().lower()
 
             if atributo in ["peso", "velocidade", "longevidade", "altura"]:
