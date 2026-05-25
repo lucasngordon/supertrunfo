@@ -67,8 +67,7 @@ def jogar():
             vidasJogador -= 1
             print("Você perdeu a rodada!")
         else:
-             print("\nAtributo inválido. Escolha entre peso, velocidade, longevidade e altura.")
-             jogar()
+             print("Empate!")
 
         print(f"\nPLACAR: Jogador {vidasJogador} x {vidasComputador} Computador")
 
@@ -78,5 +77,6 @@ def jogar():
             print("\nVocê venceu!")
         else:
             print("\nPróxima rodada!")
+            time.sleep(1)
 
 jogar()
