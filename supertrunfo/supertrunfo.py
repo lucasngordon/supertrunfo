@@ -12,7 +12,7 @@ class Animal:
         self.altura = altura
         
     def exibir_dados(self):
-        return f"Peso: {self.peso}kg | Vel: {self.velocidade}km/h | Vida: {self.longevidade} anos | Altura: {self.altura}cm"
+        return f"Peso: {self.peso}kg | Vel: {self.velocidade}km/h | Longevidade: {self.longevidade} anos | Altura: {self.altura}cm"
 
 #Criando cartas usando a classe Animal:
 leao = Animal("Leão", 190, 74, 15, 210)
@@ -56,7 +56,7 @@ def jogar():
             else:
                 print("Empate!")
         else:
-             print("\nAtributo inválido. Escolha entre peso, velocidade, longevidade e altura. ")
+             print("\nAtributo inválido. Escolha entre peso, velocidade, longevidade e altura.")
              jogar()
 
         print(f"\nSuas vidas: {vidasJogador}")
