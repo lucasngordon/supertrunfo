@@ -130,7 +130,7 @@ class SuperTrunfoApp:
             messagebox.showinfo("Fim de Jogo", "Parabéns! Você foi o grande vencedor!")
             self.reiniciar_jogo()
         else:
-            self.root.after(2000, self.nova_rodada)
+            self.root.after(3000, self.nova_rodada)
 
     def reiniciar_jogo(self):
         self.vidas_jogador = 3
