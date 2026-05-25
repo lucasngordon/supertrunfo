@@ -10,6 +10,9 @@ class Animal:
         self.velocidade = velocidade
         self.longevidade = longevidade
         self.altura = altura
+        
+    def exibir_dados(self):
+        return f"Peso: {self.peso}kg | Vel: {self.velocidade}km/h | Longevidade: {self.longevidade} anos | Altura: {self.altura}cm"
 
 #Criando cartas usando a classe Animal:
 leao = Animal("Leão", 190, 74, 15, 210)
@@ -37,8 +40,9 @@ def jogar():
             cartaComputador = random.choice(animais)
 
         print("===============================")
-        print(f"Sua carta: {cartaJogador.nome.upper()}")
-        atributo = input("Escolha um atributo (peso, velocidade, longevidade, altura): ").strip().lower()
+        print(f"Sua carta: {cartaJogador.nome}")
+        print(cartaJogador.exibir_dados())
+        atributo = input("Escolha um atributo (peso, velocidade, longevidade, altura): ").lower()
 
         if atributo not in ["peso", "velocidade", "longevidade", "altura"]:
              print("\nAtributo inválido. Escolha entre peso, velocidade, longevidade e altura.")
@@ -60,7 +64,8 @@ def jogar():
             vidasJogador -= 1
             print("Você perdeu a rodada!")
         else:
-            print("Empate!")
+             print("\nAtributo inválido. Escolha entre peso, velocidade, longevidade e altura.")
+             jogar()
 
         print(f"\nPLACAR: Jogador {vidasJogador} x {vidasComputador} Computador")
 
