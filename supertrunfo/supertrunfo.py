@@ -39,14 +39,16 @@ def jogar():
         while cartaComputador == cartaJogador:
             cartaComputador = random.choice(animais)
 
-        print("===============================")
-        print(f"Sua carta: {cartaJogador.nome}")
-        print(cartaJogador.exibir_dados())
-        atributo = input("Escolha um atributo (peso, velocidade, longevidade, altura): ").lower()
 
-        if atributo not in ["peso", "velocidade", "longevidade", "altura"]:
-             print("\nAtributo inválido. Escolha entre peso, velocidade, longevidade e altura.")
-             continue
+        while True:
+            print("===============================")
+            print(f"Sua carta: {cartaJogador.nome.upper()}")
+            atributo = input("Escolha um atributo (peso, velocidade, longevidade, altura): ").strip().lower()
+
+            if atributo in ["peso", "velocidade", "longevidade", "altura"]:
+                break
+            else:
+                print("\nAtributo inválido. Escolha entre peso, velocidade, longevidade e altura.")
          
         val_jogador = getattr(cartaJogador, atributo)
         val_computador = getattr(cartaComputador, atributo)
